@@ -1,0 +1,139 @@
+/* Estilos generales */
+.card {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+/* Estilos para la parte izquierda */
+.card-body.bg-primary {
+  background-color: #db0812 !important; /* Rojo especificado */
+  color: white !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.card-body.bg-primary h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.card-body.bg-primary p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Estilos para la parte derecha (formulario) */
+.card-body {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-body h3 {
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.form-control {
+  font-size: 1rem;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+/* Estilo para el botón */
+.btn-primary {
+  background-color: #db0812;
+  border-color: #db0812;
+  padding: 0.75rem;
+  font-size: 1rem;
+}
+
+.btn-primary:disabled {
+  background-color: #f5c6cb;
+  border-color: #f5c6cb;
+}
+
+.btn-link {
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: #db0812;
+  padding: 0;
+}
+
+/* Estilo para la alerta de error */
+.alert-danger {
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  color: #721c24;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+/* Media Queries - Responsive Styles */
+@media (max-width: 768px) {
+  .card {
+    flex-direction: column;  /* Cambiar a columna en pantallas pequeñas */
+    margin-top: 2rem;
+  }
+
+  /* Ajustes para la parte izquierda */
+  .card-body.bg-primary {
+    padding: 1.5rem;  /* Reducir padding */
+  }
+
+  .card-body.bg-primary h1 {
+    font-size: 2rem;  /* Reducir tamaño de fuente */
+  }
+
+  .card-body.bg-primary p {
+    font-size: 1rem;  /* Reducir tamaño de fuente */
+  }
+
+  /* Ajustes para la parte derecha */
+  .card-body {
+    padding: 1rem;
+  }
+
+  .card-body h3 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .form-group label {
+    font-size: 1rem;
+  }
+
+  .form-control {
+    font-size: 1rem;
+    padding: 0.75rem;
+  }
+
+  .btn-primary {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+
+  .alert-danger {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+
+  .form-group {
+    margin-bottom: 1.2rem;
+  }
+}

@@ -1,0 +1,67 @@
+.container {
+  width: 100%;
+  padding: 20px;
+}
+
+.card {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.card-body {
+  padding: 2rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  padding: 10px;
+  background-color: #db0812;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.text-center {
+  margin: 0 auto;
+  width: fit-content;
+  color: #db0812;
+}
+
+p {
+  font-size: 1rem;
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: 100%;
+    margin: 20px;
+  }
+
+  .card-body {
+    padding: 1rem;
+  }
+}

@@ -1,0 +1,50 @@
+<div class="main-layout">
+  <header class="header">
+    <div class="header-content">
+      <a routerLink="/home"> <img src="./assets/Img/sintad_logo.png" alt="Logo Sintad" class="header-logo"> </a>
+      <h1 class="header-title">Mantenimiento de Entidades</h1>
+      <button class="hamburger" (click)="toggleMenu()">&#9776;</button>
+    </div>
+  </header>
+
+  <div class="body-container">
+    <aside class="sidebar" [class.hidden]="!menuOpen">
+      <ul class="sidebar-menu">
+        <li>
+          <a routerLink="/home" routerLinkActive="active" (click)="closeMenu()">
+            <i class="fas fa-home"></i>
+            <span>Inicio</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/documents" routerLinkActive="active" (click)="closeMenu()">
+            <i class="fas fa-file-alt"></i>
+            <span>Tipos de Documentos</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/contributors" routerLinkActive="active" (click)="closeMenu()">
+            <i class="fas fa-id-card"></i>
+            <span>Tipos de Contribuyentes</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/me" routerLinkActive="active" (click)="closeMenu()">
+            <i class="fas fa-user"></i>
+            <span>Mi Perfil</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/login" routerLinkActive="active" (click)="logout(); closeMenu()">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Cerrar Sesión</span>
+          </a>
+        </li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>

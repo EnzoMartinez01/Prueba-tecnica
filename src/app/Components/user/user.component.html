@@ -1,0 +1,95 @@
+<div *ngIf="userInfo; else loading" class="user-info-container">
+  <h2 class="title">Sobre mí</h2>
+
+  <div class="user-info">
+    <div class="profile-picture">
+      <span class="profile-icon material-icons">person</span>
+    </div>
+
+    <div class="user-details">
+      <div class="info-row">
+        <span class="info-label">Username:</span>
+        <span class="info-value">{{ userInfo.username }}</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Nombre Completo:</span>
+        <span class="info-value">{{ userInfo.name }} {{ userInfo.lastName }}</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Email:</span>
+        <span class="info-value">{{ userInfo.email }}</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Última fecha de conexión:</span>
+        <span class="info-value">{{ userInfo.connectionDate | date: 'shortDate' }}</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Estado:</span>
+        <button class="status-btn">Activo</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="buttons-footer">
+  <button mat-raised-button color="primary" (click)="openEditUserDialog(userInfo)">Editar</button>
+  <button mat-raised-button color="warn" (click)="openDeleteConfirmDialog(userInfo)">Eliminar</button>
+</div>
+
+<!-- Modal para editar Usuario -->
+<div *ngIf="isEditUserDialogOpen" class="modal-overlay">
+  <div class="modal-card">
+    <h3>Editar Usuario</h3>
+    <form (ngSubmit)="submitEditForm()">
+      <div class="form-container">
+        <div class="form-item">
+          <mat-form-field appearance="fill">
+            <mat-label>Nombre</mat-label>
+            <input matInput [(ngModel)]="editUser.name" name="name" required />
+          </mat-form-field>
+        </div>
+        <div class="form-item">
+          <mat-form-field appearance="fill">
+            <mat-label>Apellido</mat-label>
+            <input matInput [(ngModel)]="editUser.lastName" name="lastName" required />
+          </mat-form-field>
+        </div>
+        <div class="form-item">
+          <mat-form-field appearance="fill">
+            <mat-label>Correo Electrónico</mat-label>
+            <input matInput [(ngModel)]="editUser.email" name="email" required />
+          </mat-form-field>
+        </div>
+        <div class="form-item">
+          <mat-form-field appearance="fill">
+            <mat-label>Usuario</mat-label>
+            <input matInput [(ngModel)]="editUser.username" name="username" required />
+          </mat-form-field>
+        </div>
+        <div class="form-item">
+          <mat-checkbox [(ngModel)]="editUser.active" name="active">Activo</mat-checkbox>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button mat-raised-button color="primary" type="submit">Guardar Cambios</button>
+        <button mat-raised-button color="warn" type="button" (click)="closeEditUserDialog()">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Modal de confirmación de eliminación -->
+<div *ngIf="isDeleteConfirmDialogOpen" class="modal-overlay">
+  <div class="modal-card">
+    <h3>Confirmar Eliminación</h3>
+    <p>¿Estás seguro de que deseas eliminar su Usuario <strong>{{ userToDelete?.username }}</strong>?</p>
+    <div class="modal-actions">
+      <button mat-raised-button color="warn" (click)="confirmDelete()">Eliminar</button>
+      <button mat-raised-button color="primary" (click)="closeDeleteConfirmDialog()">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<ng-template #loading>
+  <p>Cargando información del usuario...</p>
+</ng-template>
